@@ -7,12 +7,18 @@ export default class ClassComponentExample extends React.Component {
     };
 
     componentDidMount() {
-        console.log('ComponentDidMount:')
-    }
+        console.log('ComponentDidMount:');
+        const data = getSingle(this.props.id);
+        this.setState({data})
+    };
 
     componentDidUpdate(prevProps){
-        console.log('ComponentDidUpdate:')
-    }
+        console.log('ComponentDidUpdate:');
+        if(prevProps.id !== this.props.id){
+            const data = getSingle(this.props.id);
+            this.setState({data})
+        }
+    };
 
     render(){
     return(
