@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useMemo} from 'react';
 import {getSingle} from "../utils";
+import {useSingleHook} from "../utils";
 
 export default function HooksExample({id}){
     const [data, setData] = useState();
@@ -19,6 +20,8 @@ export default function HooksExample({id}){
         return getSingle(id);
     }, [id]);
 
+    const hookData = useSingleHook(id);
+
     return(
         <React.Fragment>
           <pre>
@@ -26,6 +29,8 @@ export default function HooksExample({id}){
               {JSON.stringify({data}, null, 2)}
               <br/>
               {JSON.stringify({memoData}, null, 2)}
+              <br/>
+              {JSON.stringify({hookData}, null, 2)}
           </pre>
             <button onClick={()=>setDommyData(dommyData+1)}>change dommy data</button>
         </React.Fragment>

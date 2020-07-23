@@ -1,3 +1,5 @@
+import {useEffect, useState} from "react";
+
 const data = [
     {
         id:1
@@ -19,4 +21,14 @@ export const getData = ()=>{
 
 export const getSingle = id=>{
     return data.find(item=>item.id === id);
+};
+
+export const useSingleHook = (id)=>{
+    const [data, setData] = useState();
+
+    useEffect(()=>{
+        const data = getSingle(id);
+        setData(data);
+    }, [id]);
+    return data;
 };
