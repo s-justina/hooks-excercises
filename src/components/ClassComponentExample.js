@@ -7,13 +7,13 @@ export default class ClassComponentExample extends React.Component {
     };
 
     componentDidMount() {
-        console.log('ComponentDidMount:');
+        console.log('ComponentDidMount: in class component');
         const data = getSingle(this.props.id);
         this.setState({data})
     };
 
     componentDidUpdate(prevProps){
-        console.log('ComponentDidUpdate:');
+        console.log('ComponentDidUpdate: in class component');
         if(prevProps.id !== this.props.id){
             const data = getSingle(this.props.id);
             this.setState({data})
